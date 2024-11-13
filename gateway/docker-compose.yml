@@ -1,0 +1,27 @@
+services:
+#  gateway-api:
+#    image: 'gateway:latest'
+#    build:
+#      context: .
+#    container_name: gateway-api
+#    ports:
+#      - "8082:8082"
+#    environment:
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-api:8761/eureka/
+#    networks:
+#      - logistica-api-network
+#    depends_on:
+#      - eureka-api
+  eureka-api:
+    image: 'aricomputacao/eureka-server:latest'
+    build:
+      context: .
+    container_name: eureka-api
+    ports:
+      - "8761:8761"
+    networks:
+      - logistica-api-network
+
+networks:
+  logistica-api-network:
+    driver: bridge
